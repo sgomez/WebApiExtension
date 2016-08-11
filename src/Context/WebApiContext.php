@@ -400,12 +400,17 @@ class WebApiContext implements ApiClientAwareContext
         }
     }
 
-    private function getClient()
+    protected function getClient()
     {
         if (null === $this->client) {
             throw new \RuntimeException('Client has not been set in WebApiContext');
         }
 
         return $this->client;
+    }
+
+    protected function getResponse()
+    {
+        return $this->response;
     }
 }
